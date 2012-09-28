@@ -13,23 +13,20 @@ public class IngressoTest {
 
 	@Test
 	public void deveAutorizarIngressoValido() {
-		Estado valido = new IngressoValido();
-		ingresso = new Ingresso(valido);
+		ingresso = new Ingresso(IngressoValido.TIPO);
 		assertTrue(ingresso.validar());
 	}
 	
 
 	@Test
 	public void deveRecusarIngressoVencido(){
-		Estado vencido = new IngressoVencido();
-		ingresso = new Ingresso(vencido);
+		ingresso = new Ingresso(IngressoVencido.TIPO);
 		assertFalse(ingresso.validar());
 	}
 	
 	@Test
 	public void deveRecusarIngressoFalsificado(){
-		Estado falsificado = new IngressoFalsificado();
-		ingresso = new Ingresso(falsificado);
+		ingresso = new Ingresso(IngressoFalsificado.TIPO);
 		assertFalse(ingresso.validar());
 	}
 	
